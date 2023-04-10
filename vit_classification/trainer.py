@@ -49,7 +49,7 @@ class Trainer:
 
         
         # TODO - Compute cross entropy loss between predictions and labels. 
-        loss = None
+        loss = torch.nn.CrossEntropyLoss()(predictions, labels)
         
 
         return loss
@@ -90,4 +90,4 @@ class Trainer:
                 print( "Train accuracy: %f" % (train_accuracy))
             
             if i % self.save_every == 0:
-                torch.save(self.model.state_dict(), 'checkpoints/model_{}.pth'.format(i))
+                torch.save(self.model.state_dict(), './checkpoints/model_{}.pth'.format(i))
